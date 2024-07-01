@@ -1,8 +1,8 @@
-const {Router} = require('express')
-const ClientsControler = require('../controllers/ClientsControler')
+const {Router} = require('express');
+const ClientsController = require('../controllers/ClientsController');
 
 const clientsRoutes = new Router();
 
-clientsRoutes.post('/', ClientsControler.criar);
+clientsRoutes.post('/', ClientsController.criar);
 
-module.exports = clientsRoutes
+module.exports = clientsRoutes;

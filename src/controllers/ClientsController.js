@@ -5,11 +5,11 @@ const conexao = new Pool({
     host: 'localhost',
     port: 5432,
     user: 'postgres',
-    password: 'posFrank5',
+    password: 'xxxxxxxx',
     database: 'Lab_Commerce'
 })
 
-class ClientsControler {
+class ClientsController {
     async criar(request, response) {
         const dados = request.body;
         if (!dados.name || !dados.email || !dados.cpf || !dados.contact) {
@@ -56,4 +56,4 @@ class ClientsControler {
     }
 }
 
-module.exports = new ClientsControler()
+module.exports = new ClientsController()
