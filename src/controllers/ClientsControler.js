@@ -5,7 +5,7 @@ const conexao = new Pool({
     host: 'localhost',
     port: 5432,
     user: 'postgres',
-    password: 'posFrank5',
+    password: 'xxxxxxx',
     database: 'Lab_Commerce'
 })
 
