@@ -6,7 +6,7 @@ const conexao = new Pool({
     host: 'localhost',
     port: 5432,
     user: 'postgres',
-    password: 'xxxxxxxx',
+    password: 'xxxxxxxxx',
     database: 'Lab_Commerce'
 })
 
@@ -70,7 +70,7 @@ class ProductsController {
                     select * from products
                     where name ilike $1
                     or description ilike $1
-                    `,[`%${filtros.filtro}%`])
+                    `, [`%${filtros.filtro}%`])
                 response.status(200).json(produtos.rows);
             } else {
                 const produtos = await conexao.query(`
@@ -88,11 +88,22 @@ class ProductsController {
         try {
             const id = request.params.id
             const produto = await conexao.query(`
-                select * from products
-                    where id = $1
+                select 
+                    p.id,
+            	    p.name as product_name,
+	                p.price,
+	                p.amount, 
+	                p.color, 
+	                p.voltage,
+	                p.description,
+	                c.name as category
+	            from products p
+                inner join categories c on 
+            	    p.category_id = c.id
+                where p.id = $1
                 `,
                 [id])
-            if  (produto.rows.length === 0) {
+            if (produto.rows.length === 0) {
                 return response.status(404).json({ mensagen: 'Produto não encontrado.' })
             }
             response.json(produto.rows[0])
