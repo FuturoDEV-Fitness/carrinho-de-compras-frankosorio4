@@ -6,7 +6,7 @@ const conexao = new Pool({
     host: 'localhost',
     port: 5432,
     user: 'postgres',
-    password: 'xxxxxxx',
+    password: 'xxxxxxxx',
     database: 'Lab_Commerce'
 })
 
@@ -27,7 +27,7 @@ class ProductsController {
         if (!array.includes(dados.voltage)) {
             return response.status(400).json({ mensagen: 'Voltagem nao valido. O voltagem pode ter valores de 110, 220, ou n/a.' })
         }
-        
+
         //validating price
         if (typeof dados.price != 'number' || dados.price < 0) {
             return response.status(400).json({ mensagen: 'O preço tem que ser um numero inteiro positivo' })
@@ -56,8 +56,49 @@ class ProductsController {
             ]);
             response.status(201).json(product.rows[0]);
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             return response.status(500).json({ mensagen: 'Erro no servidor.' });
+        }
+    }
+
+    async listarTodos(request, response) {
+        try {
+            //thi is defined in the params of the request
+            const filtros = request.query
+            if (filtros.filtro) {
+                const produtos = await conexao.query(`
+                    select * from products
+                    where name ilike $1
+                    or description ilike $1
+                    `,[`%${filtros.filtro}%`])
+                response.status(200).json(produtos.rows);
+            } else {
+                const produtos = await conexao.query(`
+                    select * from products
+                    `);
+                response.status(200).json(produtos.rows);
+            }
+        } catch (error) {
+            //console.log(error);
+            return response.status(500).json({ mensagen: 'Erro no servidor.' });
+        }
+    }
+
+    async listarUm(request, response) {
+        try {
+            const id = request.params.id
+            const produto = await conexao.query(`
+                select * from products
+                    where id = $1
+                `,
+                [id])
+            if  (produto.rows.length === 0) {
+                return response.status(404).json({ mensagen: 'Produto não encontrado.' })
+            }
+            response.json(produto.rows[0])
+        } catch (error) {
+            console.log(error)
+            return response.status(500).json({ mensagen: 'Erro no servidor.' })
         }
     }
 }
