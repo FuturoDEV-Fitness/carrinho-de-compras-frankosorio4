@@ -1,6 +1,5 @@
 const { response } = require('express');
 const { Pool } = require('pg');
-const ProductsRoutes = require('../routes/products.routes');
 
 const conexao = new Pool({
     host: 'localhost',
@@ -42,8 +41,7 @@ class ProductsController {
             const product = await conexao.query(`
                 insert into products
                 (name, amount, color, voltage, description, price, category_id)
-                values
-                ($1, $2, $3, $4, $5, $6, $7)
+                values ($1, $2, $3, $4, $5, $6, $7)
                 returning *
                 `, [
                 dados.name,
@@ -106,7 +104,7 @@ class ProductsController {
             if (produto.rows.length === 0) {
                 return response.status(404).json({ mensagen: 'Produto não encontrado.' })
             }
-            response.json(produto.rows[0])
+            response.status(200).json(produto.rows[0])
         } catch (error) {
             console.log(error)
             return response.status(500).json({ mensagen: 'Erro no servidor.' })
