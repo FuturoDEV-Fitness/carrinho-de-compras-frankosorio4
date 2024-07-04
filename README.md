@@ -23,21 +23,17 @@ O carrinho de compras e uma aplicacao simples de back end que permite receber os
 
 - Para iniciar:
   
-  To launch the server and restart automatically when changes are made
-set "start": "nodemon src/index.js" inside of the JSON package to starting with “npm start”
-  
+  To launch the server and restart automatically when changes are made set "start": "nodemon src/index.js" inside of the JSON package to starting with “npm start”
+
+## Documentaçao da API
+
 ## Melhorias
-- Criar uma API que faça a conexão com um banco de dados.
+- Criar uma aplicacao front end para fazer a conexão com o back-end.
 - Implementar uma melhor forma de validação de dados y segurança.
-- Melhorar os estilos dos componentes e das páginas, em geral.
-- Implementar responsividade para telefones y tablets.
-- Fazer validação dos de Latitude y Longitude no cadastro dos locais.
-- Implementação do mapa para la ubicação dos locais.
-- Implementação da função de editar usuário.
-- Validação para que o usuário só possa editar os locais cadastrados por ele.
-- Opção para o usuário colocar uma imagem do local a cadastrar.
-  
-## Descriçao do projeto
+- Implementação da função de editar, deletar, .... usuário.
+- Implementação da função de editar, deletar, ..... pedido.
+
+## Descriçao do projeto(VIDEO)
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/dNOfMvCD)
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=15330879&assignment_repo_type=AssignmentRepo)
