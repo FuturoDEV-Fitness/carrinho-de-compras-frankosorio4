@@ -11,6 +11,8 @@ O carrinho de compras e uma aplicacao simples de back end que permite receber os
 
 ![image](https://github.com/FuturoDEV-Fitness/carrinho-de-compras-frankosorio4/assets/141787907/1d2d047d-3887-4b37-9fa4-d5e07620c1a7)
 
+-POSTMAN
+
 
 ## Como executar
 
