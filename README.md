@@ -26,7 +26,7 @@ O carrinho de compras e uma aplicação simples de Back-end que permite receber 
 
 - Para iniciar:
 
-  Você pode configurar para iniciar o servidor automaticamente com o comando “npm start” setando no arquivo package.json do repositório "start": "nodemon src/index.js".
+  Você pode configurar para iniciar y manter o servidor online com o comando ```npm start```. Para fazer isso, voce tem que setar no arquivo package.json do repositório o comando de inicializaçao ```"start": "nodemon src/index.js"```.
 
 ## Documentação da API
 
