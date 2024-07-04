@@ -32,7 +32,7 @@ O carrinho de compras e uma aplicação simples de Back-end que permite receber 
 
 - Método POST client:
   
-  **url** para o request: http://localhost:3000/clients/
+  **URL** para local request: http://localhost:3000/clients/
 
   **Request:**
   ```
@@ -57,7 +57,7 @@ O carrinho de compras e uma aplicação simples de Back-end que permite receber 
     
 - Método POST products:
 
-    **url** para o request: http://localhost:3000/clients/
+    **URL** para local request: http://localhost:3000/clients/
 
   **Request:**
   ```
@@ -65,7 +65,7 @@ O carrinho de compras e uma aplicação simples de Back-end que permite receber 
     "name": "nome_cliente",
     "amount": quantidade,
     "color": "color_do_produto",
-    "voltage": "voltage_produto ou n/a",
+    "voltage": "voltage_produto 110, 220, ou n/a",
     "description": "descriçao_produto",
     "price": preço,
     "category_id": "categoria_produto"
@@ -74,18 +74,25 @@ O carrinho de compras e uma aplicação simples de Back-end que permite receber 
 
   **Base de dados:**
   ```
-  create table clients(
-	  id serial primary key,
-	  name varchar(150) not null,
-	  email varchar(150) unique not null, 
-	  cpf varchar(50) unique not null,
-	  contact varchar(20) not null
+  create type voltage_enum as enum('110', '220', 'n/a');
+
+  create table products(
+	id serial primary key,
+	name varchar(150) not null,
+	amount int default 0 not null, 
+	color varchar(50),
+	voltage voltage_enum,
+	description text,
+	price decimal(10,2) not null,
+	category_id int not null,
+	foreign key (category_id) 
+		references categories(id)
   )
   ```
 
 - Método POST orders:
 
-  **url** para o request: http://localhost:3000/orderss/
+  **URL** para local request: http://localhost:3000/orderss/
 
   **Request:**
   ```
