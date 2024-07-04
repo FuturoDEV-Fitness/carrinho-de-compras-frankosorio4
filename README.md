@@ -1,6 +1,6 @@
 # **CARRINHO DE COMPRAS**
 
-O carrinho de compras e uma aplicação simples de Back-end que permite receber os dados de um usuário via uma API para cadastrá-lo na base de dados de um site. Uma vez cadastrado, esta aplicação permite a o usuário guardar os itens de seu carrinho na base de dados, con todas as informaçoes do item, y retornar para o cliente o preço total que ele vai pagar pela compra dos itens.
+O carrinho de compras e uma aplicação simples de Back-end que permite receber os dados de um usuário via uma API para cadastrá-lo na base de dados de um site. Uma vez cadastrado, esta aplicação permite a o usuário guardar os itens de seu carrinho na base de dados, com todas as informaçoes dos itens, y retornar para o cliente o preço total do pedido.
 
 ## Tecnologias utilizadas
 -NODEJS
