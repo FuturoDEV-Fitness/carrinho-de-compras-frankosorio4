@@ -5,7 +5,7 @@ const conexao = new Pool({
     host: 'localhost',
     port: 5432,
     user: 'postgres',
-    password: 'xxxxxxxxx',
+    password: 'xxxxxx',
     database: 'Lab_Commerce'
 })
 
@@ -29,13 +29,20 @@ class ProductsController {
 
         //validating price
         if (typeof dados.price != 'number' || dados.price < 0) {
-            return response.status(400).json({ mensagen: 'O preço tem que ser um numero inteiro positivo' })
-        }
+            return response.status(400).json({ mensagen: 'O preço tem que ser um numero inteiro positivo' });
+        };
 
-        //validating id
+        //validating category_id
         if (!Number.isInteger(dados.category_id) || dados.category_id < 0) {
-            return response.status(400).json({ mensagen: 'O Id da categoria tem que ser um numero inteiro positivo' })
-        }
+            return response.status(400).json({ mensagen: 'O Id da categoria tem que ser um numero inteiro positivo' });
+        };
+
+        //validating category_id in DB
+        const idcategoryExists = await conexao.query(`
+            select exists (select 1 from categories where id = $1)`, [dados.category_id]);
+        if (!idcategoryExists.rows[0].exists) {
+            return response.status(400).json({ mensagen: 'O id da categoria não existe.' });
+        };
 
         try {
             const product = await conexao.query(`
@@ -61,16 +68,16 @@ class ProductsController {
 
     async listarTodos(request, response) {
         try {
-            //thi is defined in the params of the request
+            //"filtro" comes in the request params
             const filtros = request.query
-            if (filtros.filtro) {
+            if (filtros.filtro) {//finding with a filter
                 const produtos = await conexao.query(`
                     select * from products
                     where name ilike $1
                     or description ilike $1
                     `, [`%${filtros.filtro}%`])
                 response.status(200).json(produtos.rows);
-            } else {
+            } else {//list all
                 const produtos = await conexao.query(`
                     select * from products
                     `);

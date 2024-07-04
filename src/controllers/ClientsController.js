@@ -26,21 +26,21 @@ class ClientsController {
             return response.status(400).json({ mensagem: 'CPF inválido. Forneça só os numeros do seu CPF.' });
         }
 
-        //validating if the cpf there exist
+        //validating if the cpf there exist in db
         const isCpfDb = await conexao.query("select * from clients where cpf = $1", [dados.cpf])
 
         if (isCpfDb.rows.length != 0) {
             return response.status(400).json({ mensagem: 'O CPF fornecido ja esta cadastrado' })
         }
 
-        //validating if the email there exist
+        //validating if the email there exist in db
         const isemailDb = await conexao.query("select * from clients where email = $1", [dados.email])
 
         if (isemailDb.rows.length != 0) {
             return response.status(400).json({ mensagem: 'O EMAIL fornecido ja esta cadastrado' })
         }
 
-        try {
+        try {//inserting the data in the db
             const client = await conexao.query(`
                 insert into clients
                 (name, email, cpf, contact)
