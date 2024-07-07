@@ -1,6 +1,6 @@
 # **CARRINHO DE COMPRAS**
 
-O carrinho de compras e uma aplicação simples de Back-end que permite receber os dados de um usuário via uma API para cadastrá-lo na base de dados de um site. Uma vez cadastrado, esta aplicação permite a o usuário guardar os itens de seu carrinho na base de dados, com todas as informaçoes dos itens, y retornar para o cliente o preço total do pedido.
+O carrinho de compras e uma aplicação simples de Back-end que permite receber os dados de um usuário via uma API para cadastrá-lo na base de dados de um site. Uma vez cadastrado, esta aplicação permite a o usuário guardar os itens de seu carrinho na base de dados, com todas as informaçoes dos itens, e retornar para o cliente o preço total do pedido.
 
 ## Tecnologias utilizadas
 -NODEJS
@@ -15,18 +15,18 @@ O carrinho de compras e uma aplicação simples de Back-end que permite receber 
 
 ![image](https://github.com/FuturoDEV-Fitness/carrinho-de-compras-frankosorio4/assets/141787907/6875cf76-33ba-41a6-8991-36143fa5d089)
 
+## Livrarias utilizadas:
+- express (https://expressjs.com/)
+- pg (https://node-postgres.com/)
+
 ## Como executar
 
 - Clone o repositório.
 
-- Abra o terminal no diretório do repositório descarregado e instale as seguintes bibliotecas:
-  1. ```npm install```
-  2. ```npm install express```
-  3. ```npm install pg```
-
+- Abra o terminal no diretório do repositório descarregado e instale as seguintes bibliotecas usando ```npm install```.
 - Para iniciar:
 
-  Você pode configurar para iniciar y manter o servidor online com o comando ```npm start```. Para fazer isso, voce tem que setar no arquivo package.json do repositório o comando de inicializaçao ```"start": "nodemon src/index.js"```.
+  Você pode configurar para iniciar e manter o servidor online com o comando ```npm start```. Para fazer isso, voce tem que establecer no arquivo package.json do repositório o comando de inicializaçao ```"start": "nodemon src/index.js"```.
 
 ## Documentação da API
 
@@ -64,7 +64,7 @@ O carrinho de compras e uma aplicação simples de Back-end que permite receber 
   {
     "name": "nome_cliente",
     "amount": quantidade,
-    "color": "color_do_produto",
+    "color": "cor_do_produto",
     "voltage": "voltage_produto 110, 220, ou n/a",
     "description": "descriçao_produto",
     "price": preço,
@@ -127,8 +127,8 @@ O carrinho de compras e uma aplicação simples de Back-end que permite receber 
     
 ## Melhorias
 - Criar uma aplicação front end para fazer a conexão com o Back-end.
-- Implementar uma melhor forma de validação de dados y segurança.
-- Implementação da função de editar, deletar para o usuários.
+- Implementar uma melhor forma de validação de dados e segurança.
+- Implementação da função de editar, deletar para os usuários.
 - Implementação da função de editar, deletar para os produtos.
 - Implementação da função de inserir, editar, deletar para as categorias dos produtos.
 - Implementação da função de editar, deletar para os pedidos.
