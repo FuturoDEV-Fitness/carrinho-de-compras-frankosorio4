@@ -1,6 +1,6 @@
-# **CARRINHO DE COMPRAS**
+# **LAB-COMMERCE**
 
-O carrinho de compras e uma aplicação simples de Back-end desenvolvida en **NODEJS** que permite receber os dados de um usuário via uma API para cadastrá-lo na base de dados de um site. Uma vez cadastrado, esta aplicação permite a o usuário guardar os itens de seu carrinho na base de dados (**PostgreSQL**), com todas as informaçoes dos itens, e retornar para o cliente o preço total do pedido.
+LAB-COMMERCE é uma aplicação de Back-end simples que simula uma loja virtual. Ela desenvolvida em **NODEJS**, e permite receber os dados de um usuário via uma API para cadastrá-lo numa base de dados. Uma vez cadastrado, esta aplicação permite a o usuário guardar os itens de seu carrinho na base de dados (**PostgreSQL**), com todas as informações dos itens, e retornar para o cliente o preço total do pedido.
 
 ## Tecnologias utilizadas
 -NODEJS
