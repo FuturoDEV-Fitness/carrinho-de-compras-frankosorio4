@@ -1,6 +1,6 @@
 # **CARRINHO DE COMPRAS**
 
-O carrinho de compras e uma aplicação simples de Back-end que permite receber os dados de um usuário via uma API para cadastrá-lo na base de dados de um site. Uma vez cadastrado, esta aplicação permite a o usuário guardar os itens de seu carrinho na base de dados, com todas as informaçoes dos itens, e retornar para o cliente o preço total do pedido.
+O carrinho de compras e uma aplicação simples de Back-end desenvolvida en **NODEJS** que permite receber os dados de um usuário via uma API para cadastrá-lo na base de dados de um site. Uma vez cadastrado, esta aplicação permite a o usuário guardar os itens de seu carrinho na base de dados (**PostgreSQL**), com todas as informaçoes dos itens, e retornar para o cliente o preço total do pedido.
 
 ## Tecnologias utilizadas
 -NODEJS
@@ -29,6 +29,14 @@ O carrinho de compras e uma aplicação simples de Back-end que permite receber 
   Você pode configurar para iniciar e manter o servidor online com o comando ```npm start```. Para fazer isso, voce tem que establecer no arquivo package.json do repositório o comando de inicializaçao ```"start": "nodemon src/index.js"```.
 
 ## Documentação da API
+
+- Método GET client (listar todos os clientes):
+  
+  **URL** para local request: http://localhost:3000/clients/
+
+- Método GET client (listar um cliente enviando o ID do cliente na requisição):
+  
+  **URL** para local request: http://localhost:3000/clients/id
 
 - Método POST client:
   
@@ -92,7 +100,7 @@ O carrinho de compras e uma aplicação simples de Back-end que permite receber 
 
 - Método POST orders:
 
-  **URL** para local request: http://localhost:3000/orderss/
+  **URL** para local request: http://localhost:3000/orders/
 
   **Request:**
   ```
